@@ -6,13 +6,13 @@ import Axios from 'axios'
 
 
 const  HomeScreen = () => {
-    const [ transporters, setTransporters] = useState([]);
+    const [ transporter, setTransporters] = useState([]);
 
         useEffect(() => {
           const fetchData = async () => {
   const {data} = await Axios.get('http://127.0.0.1:3500/api/transporters/');
   setTransporters(data);
-  console.log(data)
+ 
  
           }
           fetchData();
@@ -26,7 +26,7 @@ const  HomeScreen = () => {
         <div>
         <ul className="transporters">
         {
-            transporters.map(transporter =>
+            transporter.map(transporter =>
                 <li key={transporter._id}>
                     <div className="transporter">
                         <Link to={"/transporters/" + transporter._id}>

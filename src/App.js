@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import HomeScreen from './screens/homeScreen';
-//import TransporterScreen from './screens/transporterScreen';
+import TransporterScreen from './screens/transporterScreen';
 function App() {
  
    const openMenu = () => {
@@ -26,7 +26,7 @@ function App() {
              <Link to='/'>MANJI</Link>
            </div>
            <div className='header-links'>
-           <Link to='/cart'>Cart</Link>
+           <Link to='/cart'>LAN</Link>
             <Link to="/signin">
                  Sign In
          </Link> 
@@ -66,6 +66,7 @@ function App() {
          <div className="content">
          <Switch>
         <Route path='/' exact={true} component={HomeScreen} />
+        <Route path='/transporters/:id' component={TransporterScreen} />
        
           </Switch>
  
