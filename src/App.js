@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import HomeScreen from './screens/homeScreen';
+//import TransporterScreen from './screens/transporterScreen';
 function App() {
  
    const openMenu = () => {
@@ -25,10 +26,10 @@ function App() {
              <Link to='/'>MANJI</Link>
            </div>
            <div className='header-links'>
-           <a href='/cart'>Cart</a>
-            <a href="/signin">
+           <Link to='/cart'>Cart</Link>
+            <Link to="/signin">
                  Sign In
-         </a> 
+         </Link> 
            
  
          </div>
@@ -41,21 +42,21 @@ function App() {
            <li className="list">
  
              <div className="list-items">
-               <a href="/cars">Taxi</a>
+               <Link to="/cars">Taxi</Link>
              </div>
              
  
              <div className="list-items">
-               <a href="/bikes">Okada</a>
+               <Link to="/bikes">Okada</Link>
               
            </div>
           
              <div className="list-items">
-               <a href="/cargo">Cargo</a>
+               <Link to="/cargo">Cargo</Link>
                
              </div>
              <div className="list-items">
-               <a href="/truck">Caterpiller</a>
+               <Link to="/truck">Caterpiller</Link>
                
              </div>
              </li>
@@ -65,7 +66,7 @@ function App() {
          <div className="content">
          <Switch>
         <Route path='/' exact={true} component={HomeScreen} />
-        
+       
           </Switch>
  
          </div>

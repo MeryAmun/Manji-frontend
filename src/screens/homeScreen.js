@@ -1,18 +1,32 @@
-import React, { useEffect} from 'react'
-import data from '../data';
+import React, { useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
+import Axios from 'axios'
 
 
 
 
 const  HomeScreen = () => {
+    const [ transporters, setTransporters] = useState([]);
+
+        useEffect(() => {
+          const fetchData = async () => {
+  const {data} = await Axios.get('http://127.0.0.1:3500/api/transporters/');
+  setTransporters(data);
+  console.log(data)
+ 
+          }
+          fetchData();
+      //eslint-disable-next-line react-hooks/exhaustive-deps
+      return () => {
+      };
     
+    }, [])
 
     return (
         <div>
         <ul className="transporters">
         {
-            data.transporters.map(transporter =>
+            transporters.map(transporter =>
                 <li key={transporter._id}>
                     <div className="transporter">
                         <Link to={"/transporters/" + transporter._id}>
