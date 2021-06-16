@@ -1,21 +1,18 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import Axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux';
+import { listTransporters } from '../actions/transporterActions';
 
 
 
 
 const  HomeScreen = () => {
-    const [ transporter, setTransporters] = useState([]);
+    const transporterList = useSelector(state => state.transporterList);
+    const {transporters, loading, error} = transporterList;
+    const dispatch = useDispatch();
 
         useEffect(() => {
-          const fetchData = async () => {
-  const {data} = await Axios.get('http://127.0.0.1:3500/api/transporters/');
-  setTransporters(data);
- 
- 
-          }
-          fetchData();
+            dispatch(listTransporters());
       //eslint-disable-next-line react-hooks/exhaustive-deps
       return () => {
       };
@@ -23,10 +20,13 @@ const  HomeScreen = () => {
     }, [])
 
     return (
+        loading ? <div>loading...</div> :
+        error ? <div>{error}</div>:
+        
         <div>
         <ul className="transporters">
         {
-            transporter.map(transporter =>
+            transporters.map(transporter =>
                 <li key={transporter._id}>
                     <div className="transporter">
                         <Link to={"/transporters/" + transporter._id}>
