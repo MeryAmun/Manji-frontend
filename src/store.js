@@ -1,12 +1,13 @@
 import {createStore, combineReducers, applyMiddleware,compose } from 'redux';
 import thunk from "redux-thunk";
-import { transporterListReducer} from './reducers/transporterReducers'
+import { transporterListReducer, transporterDetailsReducer} from './reducers/transporterReducers'
 
 
 const initialstate = {};
 
 const reducer = combineReducers({
     transporterList: transporterListReducer,
+    transporterDetails: transporterDetailsReducer
     
   
 

@@ -1,5 +1,5 @@
 import {
-    TRANSPORTER_LIST_REQUEST, TRANSPORTER_LIST_SUCCESS, TRANSPORTER_LIST_FAIL}
+    TRANSPORTER_LIST_REQUEST, TRANSPORTER_LIST_SUCCESS, TRANSPORTER_LIST_FAIL, TRANSPORTER_DETAILS_REQUEST, TRANSPORTER_DETAILS_SUCCESS, TRANSPORTER_DETAILS_FAIL}
 from '../constants/transporterConstant'
 import axios from 'axios'
 
@@ -17,7 +17,17 @@ const listTransporters = () => async (dispatch) => {
     }
    }
 //transporters details action
+const detailsTransporter = (transporterId) => async (dispatch) => {
+ 
+   try {
+      dispatch({ type: TRANSPORTER_DETAILS_REQUEST, payload: transporterId });
+      const { data } = await axios.get('/api/transporters/' + transporterId);
+      dispatch({ type: TRANSPORTER_DETAILS_SUCCESS, payload: data });
+   }
+   catch (error) {
+      dispatch({ type: TRANSPORTER_DETAILS_FAIL, payload: error.message })
+   }
+}
 
 
-
-export { listTransporters }
+export { listTransporters, detailsTransporter }

@@ -1,23 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import {useEffect, useState } from 'react'
-import Axios from 'axios';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import {useEffect } from 'react';
+import { detailsTransporter } from '../actions/transporterActions';
 
 
-const  TransporterScreen = () => {
-    const [transporter, setTransporter] = useState([]);
+
+const  TransporterScreen = (props) => {
+    const transporterDetails = useSelector(state => state.transporterDetails);
+    const { transporter, loading, error } = transporterDetails;
+    const dispatch = useDispatch();
   
 
     useEffect(() => {
        
-            Axios.get('http://127.0.0.1:3500/api/transporters/:id').then((response)=>{
-                console.log(response.data)
-                setTransporter(response.data);
-            });
-            
-           
-           
-                
+        dispatch(detailsTransporter(props.match.params.id));
          //eslint-disable-next-line react-hooks/exhaustive-deps 
     }, []);
 
@@ -29,50 +26,58 @@ const  TransporterScreen = () => {
         <div className='back-to-results'>
         <Link to='/'>Back to results</Link>
     </div>
-     {
-         transporter.map((transporter) => {
-             return(
-                <div className='details'>
-                <div className='details-image'>
-            <img  width="400px" src={transporter.image} alt='transporter' />
-        </div>
-        <div className='details-info'>
-            <ul>
-                <li>
-                    <h4>{transporter.name}</h4>
-                </li>
-                <li>
-                    {transporter.rating} Stars ({transporter.numReviews} Reviews)
+    {loading ? <div>loading...</div> :
+        error ? <div>{error}</div> :
+        
+        
+        <div className='details'>
+        <div className='details-image'>
+    <img  width="200px" src={transporter.image} alt='transporter' />
+</div>
+<div className='details-info'>
+    <ul>
+        <li>
+          Name:  <b>{transporter.name}</b>
         </li>
-                <li>
-                    Location :  <b>{transporter.location}</b>
-                </li>
-                <li>
-                    Description:
-        <div> {transporter.description}</div>
-                </li>
-            </ul>
+        <li>
+        Ratings:
+            {transporter.rating} Stars
+</li>
+        <li>
+            Telephone :  <b>{transporter.telephone}</b>
+        </li>
+        <li>
+           Location: <b>{transporter.location}</b>
+        </li>
+    </ul>
+
+</div>
+
+
+<div className='details-action'>
+    <ul>
+        <li>
+    <form>
+    <label>Please call your transporter and make a deal then 
+     click select if not go back and choose another</label><br/>
+    <br/>
+<button className='button danger'>Select Transporter</button>
+    </form>
+        </li>
+
+    </ul>
+
+</div>
+
         
-        </div>
-        
-        
-        <div className='details-action'>
-            
-                
-        
-        </div>
-        
-                
-          </div>
-             )
-         }) 
-     }
-        
-        
+  </div>
+        }
   </div>
         
     )
-    
-}
+         
+     }
+        
+
         
 export default  TransporterScreen
