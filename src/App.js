@@ -5,6 +5,7 @@ import HomeScreen from './screens/homeScreen';
 import { useSelector } from 'react-redux';
 import TransporterScreen from './screens/transporterScreen';
 import SigninScreen from './screens/SigninScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 
 
@@ -35,11 +36,11 @@ function App() {
           <div className='header-links'>
             <Link to='/cart'>LAN</Link>
             {
-              userInfo && <Link to="/profile">{userInfo.name} </Link>
+              userInfo ? <Link to="/profile">{userInfo.name} </Link> :
+              <Link to="/signin">
+              Sign In</Link>
             }
-            <Link to="/signin">
-              Sign In
-  </Link>
+            
 
 
           </div>
@@ -78,6 +79,7 @@ function App() {
               <Route path='/' exact={true} component={HomeScreen} />
               <Route path='/transporters/:id' component={TransporterScreen} />
               <Route path='/signin' component={SigninScreen} />
+              <Route path='/profile' component={ProfileScreen} />
 
             </Switch>
 
