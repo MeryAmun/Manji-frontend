@@ -36,8 +36,8 @@ const SigninScreen = (props) => {
                 <ul className="form-container">
 
                     <li>
-                        <h2>
-                            Sign In
+                        <h2 className="sign text-center text-bold">
+                           <b> Sign In</b>
                             </h2> </li>
                             <li>
                                 {loading && <div>Loading</div>}
