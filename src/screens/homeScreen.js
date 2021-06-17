@@ -24,6 +24,7 @@ const  HomeScreen = () => {
         error ? <div>{error}</div>:
         
         <div>
+        <h2 className='sidetex'> Find Your Transporter</h2>
         <ul className="transporters">
         {
             transporters.map(transporter =>

@@ -30,38 +30,43 @@ const  TransporterScreen = (props) => {
         error ? <div>{error}</div> :
         
         
-        <div className='details'>
-        <div className='details-image'>
+        <div className='transporter'>
+        <div className='transporter-image'>
     <img  width="200px" src={transporter.image} alt='transporter' />
 </div>
+<br/>
+<br/>
 <div className='details-info'>
     <ul>
-        <li>
-          Name:  <b>{transporter.name}</b>
+        <li className="details-name">
+          <b>Name: </b> <b>{transporter.name}</b>
         </li>
-        <li>
-        Ratings:
-            {transporter.rating} Stars
+        <li className="details-rating">
+        <b>Ratings:</b>
+            <b>{transporter.rating} Stars</b>
 </li>
-        <li>
-            Telephone :  <b>{transporter.telephone}</b>
+        <li className="details-price">
+            <b>Telephone : </b> <b>{transporter.telephone}</b>
         </li>
-        <li>
-           Location: <b>{transporter.location}</b>
+        <li className="details-price">
+           <b>Location: </b> <b>{transporter.location}</b>
+        </li>
+        <li className="details-price">
+           <b>Category: </b> <b>{transporter.category}</b>
         </li>
     </ul>
 
 </div>
 
 
-<div className='details-action'>
+<div className='transporter-action'>
     <ul>
         <li>
     <form>
     <label>Please call your transporter and make a deal then 
      click select if not go back and choose another</label><br/>
     <br/>
-<button className='button danger'>Select Transporter</button>
+<button className='button btn-primary p-10' style={{padding:'10px'}}>Select Transporter</button>
     </form>
         </li>
 

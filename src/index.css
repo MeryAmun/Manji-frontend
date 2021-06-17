@@ -114,6 +114,7 @@ a:hover{
  height: 100%;
 }
 
+
 .transporter-name{
   font-size: 2rem;
   font-weight: bold;
@@ -152,6 +153,7 @@ a:hover{
 
 .sidetex{
   margin-left: 10px;
+  text-align: center;
 }
 
 .sidebar{
