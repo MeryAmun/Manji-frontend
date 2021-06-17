@@ -52,13 +52,13 @@ const SigninScreen = (props) => {
                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Sign in</button>
+                        <button type="submit" className="button btn-info text-white text-center">Sign in</button>
                     </li>
                     <li>
                         New to Manji ?
                 </li>
                     <li>
-                        <Link to="/register" style={{background: "#f0c040"}} className="button text-dark text-center">
+                        <Link to="/register" className="button btn-info text-white text-center">
                             Create your Manji account
                     </Link>
                     </li>
