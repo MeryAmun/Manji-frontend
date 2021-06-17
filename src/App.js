@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import HomeScreen from './screens/homeScreen';
 import TransporterScreen from './screens/transporterScreen';
+import SigninScreen from './screens/SigninScreen';
 function App() {
  
    const openMenu = () => {
@@ -67,6 +68,7 @@ function App() {
          <Switch>
         <Route path='/' exact={true} component={HomeScreen} />
         <Route path='/transporters/:id' component={TransporterScreen} />
+        <Route path='/signin' component={SigninScreen} />
        
           </Switch>
  
