@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import TransporterScreen from './screens/transporterScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 
 
@@ -80,6 +81,7 @@ function App() {
               <Route path='/transporters/:id' component={TransporterScreen} />
               <Route path='/signin' component={SigninScreen} />
               <Route path='/profile' component={ProfileScreen} />
+              <Route path='/register' component={RegisterScreen} />
 
             </Switch>
 

@@ -16,7 +16,7 @@ const RegisterScreen = (props) => {
 
     useEffect(() => {
         if(userInfo){
-            props.history.push("/");
+            props.history.push("/profile");
         }
         return () => {
 
@@ -64,7 +64,7 @@ const RegisterScreen = (props) => {
                         <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)} />
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Create Your Market account</button>
+                        <button type="submit" className="button primary">Create Your Manji account</button>
                     </li>
                     <li>
                         Already have an account ? <Link to='/signin'>
