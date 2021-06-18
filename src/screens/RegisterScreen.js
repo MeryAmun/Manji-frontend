@@ -8,6 +8,7 @@ import {register } from '../actions/userActions';
 const RegisterScreen = (props) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
+    const [telephone, setTelephone] = useState("");
     const [password, setPassword] = useState("");
     const [rePassword, setRePassword] = useState("");
     const userRegister = useSelector(state => state.userRegister );
@@ -26,7 +27,7 @@ const RegisterScreen = (props) => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(register(name, email, password, rePassword));
+        dispatch(register(name, email, telephone,  password, rePassword));
     }
     return (
         <div className="form">
@@ -47,7 +48,7 @@ const RegisterScreen = (props) => {
                             </li>
 
                             <li>
-                        <label htmlFor="name">Name:</label>
+                        <label htmlFor="name">Full Names:</label>
                         <input type="name" name="email" id="name" onChange={(e) => setName(e.target.value)} />
                     </li>
                 
@@ -55,6 +56,10 @@ const RegisterScreen = (props) => {
                         <label htmlFor="email">Email:</label>
                         <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
                     </li>
+                    <li>
+                    <label htmlFor="telephone">Phone Number:</label>
+                    <input type="telephone" name="telephone" id="telephone" onChange={(e) => setTelephone(e.target.value)} />
+                </li>
                     <li>
                         <label htmlFor="password">Password:</label>
                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
