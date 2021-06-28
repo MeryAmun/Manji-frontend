@@ -24,7 +24,7 @@ const  HomeScreen = () => {
         error ? <div>{error}</div>:
         
         <div>
-        <h1 className='jumbotron text-center text-bold text-info'> Your Available Transporters</h1>
+        <h1 className='jumbotron text-center text-bold text-info'> Available Transporters in your Area</h1>
     <div className='jumbotron text-center text-bold text-info'>
     <form className="">
     
@@ -50,17 +50,15 @@ const  HomeScreen = () => {
                 <li key={transporter._id}>
                     <div className="transporter">
                         <Link to={"/transporters/" + transporter._id}>
-                            <img className="transporter-image" src={transporter.fullImage} alt='transporter' />
+                        <img className="transporter-image" src={transporter.fullImage} alt='transporter' />
                         
-                        <div className="transporter-name">
-
-                            {transporter.name}
-
-                        </div>
-                        <div className="transporter-brand">{transporter.telephone}</div>
-                        <div className="transporter-price">{transporter.location}</div>
-                        <div className="transporter-availability">{transporter.availability}</div>
-                        <div className="transporter-rating">{transporter.rating} Stars{transporter.number}</div>
+                        <div className="transporter-name">{transporter.name}</div>
+                        <div className="transporter-brand"><label>Phone Number:</label>{transporter.telephone}</div>
+                        <div className="transporter-price"><label>Work area:</label>{transporter.location}</div>
+                        <div className="transporter-price"><label>Transport Type:</label>{transporter.category}</div>
+                        <div className="transporter-price">{transporter.city}</div>
+                        <div className="transporter-availability"><label>Available:</label>{transporter.availability}</div>
+                        <div className="transporter-rating"><label>Rating:</label>{transporter.rating} Stars{transporter.number}</div>
                         </Link>
                     </div>
                 </li>
