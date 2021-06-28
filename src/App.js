@@ -7,6 +7,7 @@ import TransporterScreen from './screens/transporterScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import CreateTransporterScreen from './screens/createTransporter';
 
 
 
@@ -79,6 +80,7 @@ function App() {
             <Switch>
               <Route path='/' exact={true} component={HomeScreen} />
               <Route path='/transporters/:id' component={TransporterScreen} />
+              <Route path='/transporters' component={CreateTransporterScreen} />
               <Route path='/signin' component={SigninScreen} />
               <Route path='/profile' component={ProfileScreen} />
               <Route path='/register' component={RegisterScreen} />

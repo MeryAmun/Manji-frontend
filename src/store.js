@@ -1,7 +1,7 @@
 import {createStore, combineReducers, applyMiddleware,compose } from 'redux';
 import thunk from "redux-thunk";
 import Cookie from 'js-cookie';
-import { transporterListReducer, transporterDetailsReducer} from './reducers/transporterReducers';
+import { transporterListReducer, transporterDetailsReducer, transporterSaveReducer} from './reducers/transporterReducers';
 import { userSigninReducer, userRegisterReducer} from './reducers/userReducer';
 
 const userInfo = Cookie.getJSON("userInfo") || [null];
@@ -13,6 +13,7 @@ const reducer = combineReducers({
     transporterDetails: transporterDetailsReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
+    transporterSave: transporterSaveReducer
     
   
 

@@ -14,6 +14,7 @@ const  TransporterScreen = (props) => {
 
     useEffect(() => {
        
+        console.log(props)
         dispatch(detailsTransporter(props.match.params.id));
          //eslint-disable-next-line react-hooks/exhaustive-deps 
     }, []);
@@ -53,6 +54,9 @@ const  TransporterScreen = (props) => {
         </li>
         <li className="details-price">
            <b>Category: </b> <b>{transporter.category}</b>
+        </li>
+        <li className="details-price">
+           <b>Available: </b> <b>{transporter.availability}</b>
         </li>
     </ul>
 

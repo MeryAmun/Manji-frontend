@@ -367,10 +367,11 @@ flex: 8 1;
   
 }
 .form{
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .form-container{
@@ -396,4 +397,10 @@ input{
   border-radius: .5rem;
 }
 
+/*transporter search component*/
 
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
