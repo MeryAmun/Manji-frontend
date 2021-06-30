@@ -85,7 +85,7 @@ a {
 }
 
 a:hover{
-  color: #ff8000;
+  color: #951010ad;
 }
 
 /* home screen*/
@@ -403,4 +403,25 @@ input{
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+.search2{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+select,label{
+  margin-right: 15px;
+  padding: 10px;
+}
+.find {
+padding: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  border: .1rem #c0c0c0 solid;
+  height: 50vh;
+  border-radius: 5px;
 }

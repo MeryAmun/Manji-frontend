@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.css';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import HomeScreen from './screens/homeScreen';
@@ -8,19 +8,29 @@ import SigninScreen from './screens/SigninScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import CreateTransporterScreen from './screens/createTransporter';
+import FindTransporterScreen from './screens/findTransporterScreen';
+import {  useDispatch } from 'react-redux';
+import  signout  from './actions/userActions';
+import PersonalDetails from './screens/personalDetails';
 
 
 
 function App() {
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+
+ const signout = () => {
+  dispatch(signout());
+}
+
 
   const openMenu = () => {
-    document.querySelector('.sidebar').classList.add('open')
+    document.querySelector('.sidebar').classNameList.add('open')
   }
 
   const closeMenu = () => {
-    document.querySelector('.sidebar').classList.remove('open')
+    document.querySelector('.sidebar').classNameList.remove('open')
 
   }
 
@@ -38,12 +48,17 @@ function App() {
           <div className='header-links'>
             <Link to='/cart'>LAN</Link>
             {
-              userInfo ? <Link to="/profile">{userInfo.name} </Link>  :
+              userInfo ?
+              <div  className="">
+              <Link to="/profile">{userInfo.name} </Link>
+              <Link to="" onClick={signout}>Sign out </Link>
+              </div>
+             :
               <Link to="/signin">
               Sign In</Link>
             }
             
-
+            
 
           </div>
         </header>
@@ -83,7 +98,9 @@ function App() {
               <Route path='/transporters' component={CreateTransporterScreen} />
               <Route path='/signin' component={SigninScreen} />
               <Route path='/profile' component={ProfileScreen} />
+              <Route path='/find' component={FindTransporterScreen} />
               <Route path='/register' component={RegisterScreen} />
+              <Route path='/personal' component={PersonalDetails} />
 
             </Switch>
 

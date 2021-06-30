@@ -2,6 +2,7 @@ import React, { useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { listTransporters } from '../actions/transporterActions';
+import FindTransporterScreen from './findTransporterScreen';
 
 
 
@@ -25,7 +26,11 @@ const  HomeScreen = () => {
         
         <div>
         <h1 className='jumbotron text-center text-bold text-info'> Available Transporters in your Area</h1>
-    <div className='jumbotron text-center text-bold text-info'>
+    <div className='jumbotron text-center text-bold text-secondary'>
+    
+    <div>
+    
+    </div>
     <form className="">
     
     <label>Find Transporter by town</label><br/>

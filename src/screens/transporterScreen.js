@@ -14,7 +14,7 @@ const  TransporterScreen = (props) => {
 
     useEffect(() => {
        
-        console.log(props)
+        console.log(transporter)
         dispatch(detailsTransporter(props.match.params.id));
          //eslint-disable-next-line react-hooks/exhaustive-deps 
     }, []);
@@ -23,22 +23,22 @@ const  TransporterScreen = (props) => {
        
 
     return (
-        <div>
+        <div className='jumbotron'>
         <div className='back-to-results'>
         <Link to='/'>Back to results</Link>
     </div>
     {loading ? <div>loading...</div> :
         error ? <div>{error}</div> :
+        transporter ?
         
-        
-        <div className='transporter'>
+        <div className=' transporter'>
         <div className='transporter-image'>
     <img  width="200px" src={transporter.image} alt='transporter' />
 </div>
 <br/>
 <br/>
 <div className='details-info'>
-    <ul>
+    <ul className="">
         <li className="details-name">
           <b>Name: </b> <b>{transporter.name}</b>
         </li>
@@ -79,8 +79,8 @@ const  TransporterScreen = (props) => {
 </div>
 
         
-  </div>
-        }
+  </div> : <div></div>  
+    }
   </div>
         
     )
