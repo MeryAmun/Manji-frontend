@@ -12,6 +12,7 @@ import FindTransporterScreen from './screens/findTransporterScreen';
 import {  useDispatch } from 'react-redux';
 import  signout  from './actions/userActions';
 import PersonalDetails from './screens/personalDetails';
+import AutomobileDetails from './screens/automobileDetails';
 
 
 
@@ -101,6 +102,7 @@ function App() {
               <Route path='/find' component={FindTransporterScreen} />
               <Route path='/register' component={RegisterScreen} />
               <Route path='/personal' component={PersonalDetails} />
+              <Route path='/auto' component={AutomobileDetails} />
 
             </Switch>
 

@@ -14,7 +14,7 @@ const SigninScreen = (props) => {
 
     useEffect(() => {
         if(userInfo){
-            props.history.push("/profile");
+            props.history.push("/personal");
         }
         return () => {
 

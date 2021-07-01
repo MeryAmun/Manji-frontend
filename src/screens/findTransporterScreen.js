@@ -53,8 +53,11 @@ const  FindTransporterScreen = () => {
         // error ? <div>{error}</div>:
         
         <div className='jumbotron'>
-        <h1 className='jumbotron text-center bg-info text-bold text-white'> Are you looking for a quick ride aound town,<br/> are you relocating to a new neigbourhood, or do you have goods to move? <br/>
-        Find Available Transporters in your Area,</h1>
+        <div className="jumbotron bg-secondary  d-flex flex-row">
+        <div className="jumbotron bg-primary w-100  text-center"><b>TAKE A RIDE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center"><b>MOVE LUGGAGES</b></div>
+        <div className="jumbotron bg-success w-100  text-center"><b>TRANSPORT GOODS</b></div>
+        </div>
     
         <ul className="jumbotron transporters">
         <form className="find" onSubmit={submitHandler}>
