@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from 'react-redux'
 import {register } from '../actions/userActions';
 
@@ -13,11 +14,12 @@ const RegisterScreen = (props) => {
     const [rePassword, setRePassword] = useState("");
     const userRegister = useSelector(state => state.userRegister );
     const {loading, userInfo, error} = userRegister;
+    const { reset } = useForm();
     const dispatch = useDispatch();
 
     useEffect(() => {
         if(userInfo){
-            props.history.push("/profile");
+            props.history.push("/personal");
         }
         return () => {
 
@@ -28,10 +30,15 @@ const RegisterScreen = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(register(name, email, telephone,  password, rePassword));
+        reset({});
     }
     return (
         <div className="form">
-
+        <div className="jumbotron bg-secondary  d-flex flex-row">
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>YOU HAVE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>WHAT</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>IT TAKES</b></div>
+        </div>
 
             <form onSubmit={submitHandler}>
             <br/>
@@ -69,7 +76,7 @@ const RegisterScreen = (props) => {
                         <input type="password" name="rePassword" id="rePassword" onChange={(e) => setRePassword(e.target.value)} />
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Create Your Manji account</button>
+                        <button type="submit" className="button dark">Create Your Manji account</button>
                     </li>
                     <li>
                         Already have an account ? <Link to='/signin'>

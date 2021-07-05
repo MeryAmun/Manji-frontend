@@ -2,17 +2,17 @@ import React, {useEffect} from 'react';
 import './App.css';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import HomeScreen from './screens/homeScreen';
-import { useSelector } from 'react-redux';
+import { useSelector,  useDispatch} from 'react-redux';
 import TransporterScreen from './screens/transporterScreen';
 import SigninScreen from './screens/SigninScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import CreateTransporterScreen from './screens/createTransporter';
 import FindTransporterScreen from './screens/findTransporterScreen';
-import {  useDispatch } from 'react-redux';
-import  signout  from './actions/userActions';
+import  {signout } from './actions/userActions';
 import PersonalDetails from './screens/personalDetails';
 import AutomobileDetails from './screens/automobileDetails';
+
 
 
 
@@ -21,10 +21,10 @@ function App() {
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
 
- const signout = () => {
-  dispatch(signout());
-}
 
+  const logout = () => {
+    dispatch(signout());
+  }
 
   const openMenu = () => {
     document.querySelector('.sidebar').classNameList.add('open')
@@ -52,7 +52,8 @@ function App() {
               userInfo ?
               <div  className="">
               <Link to="/profile">{userInfo.name} </Link>
-              <Link to="" onClick={signout}>Sign out </Link>
+              <Link to="/signin">
+              Sign In</Link>
               </div>
              :
               <Link to="/signin">
@@ -98,7 +99,7 @@ function App() {
               <Route path='/transporters/:id' component={TransporterScreen} />
               <Route path='/transporters' component={CreateTransporterScreen} />
               <Route path='/signin' component={SigninScreen} />
-              <Route path='/profile' component={ProfileScreen} />
+              <Route path='/users/:id' component={ProfileScreen} />
               <Route path='/find' component={FindTransporterScreen} />
               <Route path='/register' component={RegisterScreen} />
               <Route path='/personal' component={PersonalDetails} />

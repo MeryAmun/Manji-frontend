@@ -31,9 +31,9 @@ function AutomobileDetails(props) {
     return (
         <div className="create">
         <div className="jumbotron bg-secondary  d-flex flex-row">
-        <div className="jumbotron bg-primary w-100  text-center"><b>WE'VE</b></div>
-        <div className="jumbotron bg-danger w-100  text-center"><b>GOT YOU</b></div>
-        <div className="jumbotron bg-success w-100  text-center"><b>COVERED</b></div>
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>YOU HAVE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>WHAT</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>IT TAKES</b></div>
         </div>
         <div className="form">
 

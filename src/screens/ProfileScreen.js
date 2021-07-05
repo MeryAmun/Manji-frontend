@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import PersonalDetails from './personalDetails';
+import { signout } from '../actions/userActions';
+import { useSelector,  useDispatch} from 'react-redux';
+import CreateTransporterScreen from './createTransporter';
+
 
 export default function ProfileScreen() {
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch(signout());
+      }
+
+
     return (
         <div className="jumbotron">
         <div className="jumbotron bg-secondary  d-flex flex-row">
@@ -10,8 +20,8 @@ export default function ProfileScreen() {
         <div className="jumbotron bg-danger w-100  text-center"><b>Ratings</b></div>
         <div className="jumbotron bg-success w-100  text-center"><b>Ratings</b></div>
         </div>
-           <PersonalDetails/>
-            <Link to="/transporters" className="btn btn-info text-center text-bold">Create Transporter Session</Link>
+           <CreateTransporterScreen/>
+           <Link to="/" onClick={logout}>Sign out </Link>
         </div>
     )
 }

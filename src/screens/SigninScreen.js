@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { useForm } from "react-hook-form";
+import { useEffect, useState, } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { signIn } from '../actions/userActions';
 
@@ -10,11 +11,12 @@ const SigninScreen = (props) => {
     const [password, setPassword] = useState("");
     const userSignin = useSelector(state => state.userSignin );
     const {loading, userInfo, error} = userSignin;
+    const { reset } = useForm();
     const dispatch = useDispatch();
 
     useEffect(() => {
         if(userInfo){
-            props.history.push("/personal");
+            Redirect("/user/:id");
         }
         return () => {
 
@@ -25,10 +27,17 @@ const SigninScreen = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(signIn(email, password));
+        reset({});
     }
     return (
+        <div className="jumbotron">
+        <div className="jumbotron bg-secondary  d-flex flex-row">
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>YOU HAVE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>WHAT</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>IT TAKES</b></div>
+        </div>
         <div className="form">
-
+       
             <form onSubmit={submitHandler}>
             <br/>
             <br/>
@@ -52,18 +61,19 @@ const SigninScreen = (props) => {
                         <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
                     </li>
                     <li>
-                        <button type="submit" className="button btn-info text-white text-center">Sign in</button>
+                        <button type="submit" className="button btn-dark text-white text-center">Sign in</button>
                     </li>
                     <li>
                         New to Manji ?
                 </li>
                     <li>
-                        <Link to="/register" className="button btn-info text-white text-center">
+                        <Link to="/register" className="button btn-dark text-white text-center">
                             Create your Manji account
                     </Link>
                     </li>
                 </ul>
             </form>
+        </div>
         </div>
     )
 }

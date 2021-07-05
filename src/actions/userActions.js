@@ -22,7 +22,7 @@ try {
         const res = await Axios.post("http://127.0.0.1:3500/api/users/signout");
 
         if(res.status === 200){
-            localStorage.clear();
+            Cookie.remove("userInfo");
             dispatch({ type:USER_LOGOUT_SUCCESS });
         }else{
             dispatch({
@@ -32,7 +32,7 @@ try {
         }
 
 
-        localStorage.clear();
+        Cookie.remove("userInfo");
         dispatch({ type:USER_LOGOUT_SUCCESS });
         //const res = await axios.post(`/admin/signout`);
         // if(res.status === 200){

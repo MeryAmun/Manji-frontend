@@ -38,6 +38,11 @@ function PersonalDetails(props) {
     }
     return (
         <div className="jumbotron create">
+        <div className="jumbotron bg-secondary  d-flex flex-row">
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>YOU HAVE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>WHAT</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>IT TAKES</b></div>
+        </div>
         <div className="form">
 
 

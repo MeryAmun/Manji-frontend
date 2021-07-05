@@ -5,18 +5,13 @@ import { saveTransporter } from '../actions/transporterActions';
 
 
 function CreateTransporterScreen(props) {
-    const [name, setName] = useState(" ");
+    const [firstName, setFirstName] = useState(" ");
+    const [lastName, setLastName] = useState(" ");
     const [category, setCategory] = useState(" ");
-    const [idNumber, setIdNumber] = useState(" ");
     const [passImage, setPassImage] = useState(" ");
-    const [idImageF, setIdImageF] = useState(" ");
-    const [idImageB, setIdImageB] = useState(" ");
-    const [autoImage, setAutoImage] = useState(" ");
-    const [fullImage, setFullImage] = useState(" ");
     const [city, setCity] = useState(" ");
     const [telephone, setTelephone] = useState(" ");
     const [location, setLocation] = useState(" ");
-    const [address, setAddress] = useState(" ");
     const transporterSave = useSelector(state => state.transporterSave);
     const { loading: loadingSave, success: successSave, error: errorSave } = transporterSave;
     const dispatch = useDispatch();
@@ -32,7 +27,7 @@ function CreateTransporterScreen(props) {
     const submitHandler = (e) => {
         e.preventDefault();
         const data = {
-            name,  category,idNumber, passImage,idImageF, idImageB,autoImage, fullImage, city, telephone, location, address
+            firstName,lastName,  category, passImage, city, telephone, location
         }
         dispatch(saveTransporter(data));
        console.log(data)
@@ -40,9 +35,9 @@ function CreateTransporterScreen(props) {
     return (
         <div className="create">
         <div className="jumbotron bg-secondary  d-flex flex-row">
-        <div className="jumbotron bg-primary w-100  text-center"><b>WE'VE</b></div>
-        <div className="jumbotron bg-danger w-100  text-center"><b>GOT YOU</b></div>
-        <div className="jumbotron bg-success w-100  text-center"><b>COVERED</b></div>
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>YOU HAVE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>WHAT</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>IT TAKES</b></div>
         </div>
         <div className="form">
 
@@ -60,37 +55,24 @@ function CreateTransporterScreen(props) {
                         {errorSave && <div>error</div>}
                     </li>
                     <li>
-                        <label htmlFor="name">Full Names:</label>
-                        <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} required/>
+                        <label htmlFor="firstName">First Name:</label>
+                        <input type="text" name="firstName" id="firstName" onChange={(e) => setFirstName(e.target.value)} required/>
+                    </li>
+                    <li>
+                        <label htmlFor="lastName">Last Name:</label>
+                        <input type="text" name="lastName" id="lastName" onChange={(e) => setLastName(e.target.value)} required/>
                     </li>
                     <li>
                         <label htmlFor="category">Category (Taxi,Okada, Cargo or Caterpiller):</label>
                         <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)} required/>
                     </li>
-                    <li>
-                        <label htmlFor="idNumber">Identity Card Number:</label>
-                        <input type="text" name="idNumber" id="idNumber" onChange={(e) => setIdNumber(e.target.value)} required/>
-                    </li>
+                   
+                    
                    <li>
                    <label htmlFor="passImage">Passport Size Image:</label>
                     <input type="file" name="passImage" id="passImage" onChange={(e) => setPassImage(e.target.value)} required/>
                    </li>
-                    <li> 
-                    <label htmlFor="idImageF">Identity Card Front:</label>
-                <input type="file" name="idImageF" id="idImageF" onChange={(e) => setIdImageF(e.target.value)} required/>
-                </li>
-                    <li>
-                        <label htmlFor="idImageB">Identity Card Back:</label>
-                        <input type="file" name="idImageB" id="idImageB" onChange={(e) => setIdImageB(e.target.value)} required/>
-                    </li>
-                    <li>
-                        <label htmlFor="autoImage">Image of Taxi/Okada/Lorry (Matriculation number should be visible):</label>
-                    <input type="file" name="autoImage" id="autoImage" onChange={(e) => setAutoImage(e.target.value)} required/>
-                    </li>
-                    <li>
-                        <label htmlFor="fullImage">Full Image:</label>
-                    <input type="file" name="fullImage" id="fullImage" onChange={(e) => setFullImage(e.target.value)} required/>
-                    </li>
+                    
                    
                     <li>
                         <label htmlFor="city">City:</label>
@@ -100,10 +82,6 @@ function CreateTransporterScreen(props) {
                     <li>
                         <label htmlFor="telephone">Telephone Number:</label>
                     <input type="text" name="telephone" id="telephone" onChange={(e) => setTelephone(e.target.value)} required/>
-                    </li>
-                    <li>
-                        <label htmlFor="address">Neigbourhood (Kwata):</label>
-                        <input type="text" name="address" id="address" onChange={(e) => setAddress(e.target.value)} required/>
                     </li>
                     <li>
                     <label htmlFor="location">Work Area (e.g City Chemist):</label>

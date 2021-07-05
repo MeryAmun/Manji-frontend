@@ -25,8 +25,8 @@ const  FindTransporterScreen = () => {
     const submitHandler = (e) => {
         e.preventDefault();
        const category = setCategory;
-        // const city = setCity;
-        // const location = setLocation
+        const city = setCity;
+         const location = setLocation
 
       Axios.get('http://127.0.0.1:3500/api/transporters/?category=' + category).then((response) => {
                 console.log(response.data)
@@ -54,12 +54,12 @@ const  FindTransporterScreen = () => {
         
         <div className='jumbotron'>
         <div className="jumbotron bg-secondary  d-flex flex-row">
-        <div className="jumbotron bg-primary w-100  text-center"><b>TAKE A RIDE</b></div>
-        <div className="jumbotron bg-danger w-100  text-center"><b>MOVE LUGGAGES</b></div>
-        <div className="jumbotron bg-success w-100  text-center"><b>TRANSPORT GOODS</b></div>
+        <div className="jumbotron bg-dark w-100  text-center text-white"><b>TAKE A RIDE</b></div>
+        <div className="jumbotron bg-danger w-100  text-center text-white"><b>MOVE LUGGAGES</b></div>
+        <div className="jumbotron bg-success w-100  text-center text-white"><b>TRANSPORT GOODS</b></div>
         </div>
     
-        <ul className="jumbotron transporters">
+        <ul className="jumbotron transporte">
         <form className="find" onSubmit={submitHandler}>
         <div className="search2">
         <div className="form-group">
@@ -96,7 +96,7 @@ const  FindTransporterScreen = () => {
         setLocation(e.target.value)}} required></input>
         </div>
         <li>
-        <button type="submit" className="button btn-info text-white text-center"><b>Find Transporter</b></button>
+        <button type="submit" className="button btn-dark text-white text-center"><b>Find Transporter</b></button>
     </li>
         </div>
         </form>
